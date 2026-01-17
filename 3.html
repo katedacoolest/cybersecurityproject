@@ -99,9 +99,6 @@
             border: 1px solid #000;
         }
     </style>
-</head>
-<body>
-
     <div class="form-wrapper">
         <h2>Contact Form</h2>
         <p>Fill out this form to gain access.</p>
@@ -114,3 +111,44 @@
             
             <label>Phone:</label><br>
             <input type="tel" placeholder="Your Phone Number" required><br><br>
+ <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-box">
+            <p>Will you be my valentine?</p>
+            <div class="modal-buttons">
+                <button type="button" class="btn-yes redirect-action">Yes</button>
+                <button type="button" class="btn-yesss redirect-action">YESSS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('dateForm');
+        const modal = document.getElementById('modalOverlay');
+        const actionButtons = document.querySelectorAll('.redirect-action');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        actionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+
+                setTimeout(() => {
+                    window.location.href = "q.html";
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
