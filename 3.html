@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-box {
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            text-align: center; 
+            max-width: 350px; 
+            font-family: sans-serif;
+        }
+
+        .modal-buttons { 
+            display: flex; 
+            gap: 15px; 
+            margin-top: 25px; 
+        }
+        
+        .btn-yes { 
+            background: #ffb6c1; 
+            flex: 1; 
+            padding: 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border: 1px solid #000;
+        }
+        
+        .btn-yesss { 
+            background: #ff4d6d; 
+            color: white; 
+            flex: 1; 
+            padding: 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border: 1px solid #000;
+        }
+    </style>
+
+    <div>
+        <h2>Access Form</h2>
+        <form id="dateForm">
+            <label>Name:</label><br>
+            <input type="text" placeholder="Your Name" required><br><br>
+            
+            <label>Email:</label><br>
+            <input type="email" placeholder="Your Email" required><br><br>
+            
+            <label>Phone:</label><br>
+            <input type="tel" placeholder="Your Phone Number" required><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-box">
+            <p>Will you be my valentine?</p>
+            <div class="modal-buttons">
+                <button type="button" class="btn-yes redirect-action">Yes</button>
+                <button type="button" class="btn-yesss redirect-action">YESSS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('dateForm');
+        const modal = document.getElementById('modalOverlay');
+        const actionButtons = document.querySelectorAll('.redirect-action');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        actionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+
+                setTimeout(() => {
+                    window.location.href = "q.html";
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
