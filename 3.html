@@ -2,13 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-</head>
-<body>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #fff0f3;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Modal styling */
         .modal-overlay {
             display: none; 
             position: fixed;
@@ -24,8 +62,8 @@
             padding: 30px; 
             border-radius: 20px; 
             text-align: center; 
-            max-width: 350px; 
-            font-family: sans-serif;
+            max-width: 90%;
+            width: 350px;
         }
 
         .modal-buttons { 
@@ -34,37 +72,32 @@
             margin-top: 25px; 
         }
         
-        .btn-yes { 
-            background: #ffb6c1; 
+        .btn-yes, .btn-yesss { 
             flex: 1; 
             padding: 12px; 
             cursor: pointer; 
             font-weight: bold; 
             border: 1px solid #000;
+            border-radius: 10px;
         }
-        
-        .btn-yesss { 
-            background: #ff4d6d; 
-            color: white; 
-            flex: 1; 
-            padding: 12px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            border: 1px solid #000;
-        }
-    </style>
 
-    <div>
+        .btn-yes { background: #ffb6c1; }
+        .btn-yesss { background: #ff4d6d; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
         <h2>Access Form</h2>
         <form id="dateForm">
-            <label>Name:</label><br>
-            <input type="text" placeholder="Your Name" required><br><br>
+            <label>Name:</label>
+            <input type="text" placeholder="Your Name" required>
             
-            <label>Email:</label><br>
-            <input type="email" placeholder="Your Email" required><br><br>
+            <label>Email:</label>
+            <input type="email" placeholder="Your Email" required>
             
-            <label>Phone:</label><br>
-            <input type="tel" placeholder="Your Phone Number" required><br><br>
+            <label>Phone:</label>
+            <input type="tel" placeholder="Your Phone Number" required>
             
             <button type="submit">Submit</button>
         </form>
