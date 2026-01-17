@@ -3,77 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date!!</title>
+    <title>Contact Form</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            background-color: #fff0f3; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+
+        .form-wrapper {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+ 
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-box {
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            text-align: center; 
+            max-width: 90%; 
+            width: 350px; 
+            font-family: sans-serif;
+        }
+
+        .modal-buttons { 
+            display: flex; 
+            gap: 15px; 
+            margin-top: 25px; 
+        }
+        
+        .btn-yes { 
+            background: #ffb6c1; 
+            flex: 1; 
+            padding: 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border: 1px solid #000;
+        }
+        
+        .btn-yesss { 
+            background: #ff4d6d; 
+            color: white; 
+            flex: 1; 
+            padding: 12px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 <body>
 
-<style>
-        body {
-            background-image: url('https://marketplace.canva.com/EAEUf1ZOyzE/1/0/800w/canva-pink-and-red-powerful-femme-personal-pattern-valentine%27s-day-desktop-wallpaper-6RYuh5jhtlw.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+    <div class="form-wrapper">
+        <h2>Access Form</h2>
+        <form id="dateForm">
+            <label>Name:</label><br>
+            <input type="text" placeholder="Your Name" required><br><br>
             
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            min-height: 100vh;
-            margin: 0;
+            <label>Email:</label><br>
+            <input type="email" placeholder="Your Email" required><br><br>
             
-            font-family: sans-serif;
-            color: #333;
-        }
-
-        .message-container {
-            background-color: rgba(241, 114, 156, 0.8); 
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 90%;
-            max-width: 450px;
-            overflow: hidden;
-
-            margin: 20px auto;
-        }
-
-        .header-pic {
-            width: 100%;
-            height: 250px;
-            object-fit: cover; 
-            display: block;
-        }
-
-        .content {
-            padding: 2rem;
-        }
-
-        h1 { margin: 10px 0; }
-
-    </style>
-
-    <div class="message-container">
-        <img src="https://cdn.discordapp.com/attachments/1147198422764507257/1462101310189867030/image.jpg?ex=696cf774&is=696ba5f4&hm=f1537310b7b322eb71c3b7994457d2d25a8cc42801af7b6bced08d35fcb7cae9&" 
-             alt="cute" 
-             class="header-pic">
-
-        <div class="content">
-            <h1>CONGRATULATIONS!!  </h1>
-
-          <p> You have just reserved a date😊</p>
-    
-            <br><p><strong>With who?:</strong> MEEE </p>
-
-           <p> <strong>When?:</strong> February 14th, 2026 | 11AM-5PM. </p>
-
-            <p><strong>Where?:</strong> ShakeShack</p>
-
-            <p><strong>Why?:</strong> BECAUSE I LOVEEEE YOUUUUUU</p>
-
-        </div>
-    </div>
-
-</body>
-</html>
+            <label>Phone:</label><br>
+            <input type="tel" placeholder="Your Phone Number" required><br><br>
